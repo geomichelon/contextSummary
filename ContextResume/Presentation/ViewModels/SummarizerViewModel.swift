@@ -1,6 +1,5 @@
 import Combine
 import Foundation
-
 /// ViewModel for handling text summarization in the UI.
 /// Manages input text, summary output, loading states, and errors.
 class SummarizerViewModel: ObservableObject {
@@ -31,9 +30,13 @@ class SummarizerViewModel: ObservableObject {
                 await MainActor.run {
                     summary = result
                 }
+            } catch let error as SummarizerError {
+                await MainActor.run {
+                    errorMessage = error.userFriendlyMessage
+                }
             } catch {
                 await MainActor.run {
-                    errorMessage = error.localizedDescription
+                    errorMessage = "Unexpected error: \(error.localizedDescription)"
                 }
             }
 

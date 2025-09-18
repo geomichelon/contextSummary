@@ -38,17 +38,6 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped="NO"
-            parallelizable="YES">
-            <BuildableReference
-               BuildableIdentifier="primary"
-               BlueprintIdentifier="901AE3092E7B4D0000TEST8"
-               BuildableName="ContextResumeTests.xctest"
-               BlueprintName="ContextResumeTests"
-               ReferencedContainer="container:ContextResume.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -71,6 +60,8 @@
             ReferencedContainer = "container:ContextResume.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

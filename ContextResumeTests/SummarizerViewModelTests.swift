@@ -40,7 +40,7 @@ final class SummarizerViewModelTests: XCTestCase {
 
         // Create expectation for async operation
         let expectation = XCTestExpectation(description: "Error handling completed")
-        
+
         // Monitor changes to errorMessage
         let cancellable = viewModel.$errorMessage
             .dropFirst() // Skip initial nil value
@@ -54,13 +54,14 @@ final class SummarizerViewModelTests: XCTestCase {
 
         // Wait for the expectation to be fulfilled
         await fulfillment(of: [expectation], timeout: 2.0)
-        
+
         cancellable.cancel()
 
         XCTAssertEqual(viewModel.summary, "")
         XCTAssertFalse(viewModel.isLoading)
         XCTAssertNotNil(viewModel.errorMessage)
-        XCTAssertEqual(viewModel.errorMessage, "test error")
+        // Now the error message is converted to user-friendly format
+        XCTAssertEqual(viewModel.errorMessage, "Unexpected error: test error")
     }
 
     func testIsLoadingTogglesCorrectly() async throws {

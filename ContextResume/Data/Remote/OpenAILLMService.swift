@@ -1,7 +1,7 @@
 import Foundation
 
-/// Implementation of SummarizerRepository using OpenAI's Chat Completions API.
-struct OpenAISummarizerRepository: SummarizerRepository {
+/// OpenAI implementation of LLMService using Chat Completions API.
+struct OpenAILLMService: LLMService {
     private let apiKey: String
 
     init() {
@@ -21,7 +21,7 @@ struct OpenAISummarizerRepository: SummarizerRepository {
         request.httpMethod = "POST"
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 30 // 30 seconds timeout
+        request.timeoutInterval = 30
 
         let prompt = "Please provide a concise summary of the following text:\n\n\(text)"
         let body = OpenAIRequest(model: "gpt-3.5-turbo", messages: [Message(role: "user", content: prompt)])
@@ -40,7 +40,6 @@ struct OpenAISummarizerRepository: SummarizerRepository {
             print("📊 HTTP Status Code: \(httpResponse.statusCode)")
 
             guard httpResponse.statusCode == 200 else {
-                // Try to get error message from response
                 if let errorData = String(data: data, encoding: .utf8) {
                     print("❌ API Error Response: \(errorData)")
                 }
