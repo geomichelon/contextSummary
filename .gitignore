@@ -1,4 +1,4 @@
-# Xcode
+# Xcode project settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -10,17 +10,16 @@
 xcuserdata/
 *.moved-aside
 *.xccheckout
-*.xcscmblueprint
 
-# Xcode User Data (specific patterns)
+# User data
 *.xcuserstate
 UserInterfaceState.xcuserstate
+*.xcuserdatad
 
 # Build products
 build/
 DerivedData/
 *.build/
-*.xcscmblueprint
 
 # Test results
 *.xcresult
@@ -32,17 +31,7 @@ build/CompleteTestResults.xcresult
 # Swift Package Manager
 .build/
 Packages/
-Package.pipfile
-Package.resolved
-
-# CocoaPods
-Pods/
-
-# Carthage
-Carthage/
-
-# SwiftLint
-.swiftlint.yml
+# ⚠️ Package.resolved deve ser versionado para garantir consistência de dependências
 
 # Fastlane
 fastlane/report.xml
@@ -50,15 +39,9 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Environment variables
+# Environment variables and secrets
 .env
-.env.local
-.env.development
-.env.test
-.env.production
-.env*
-
-# API Keys and secrets
+.env.*
 Config/APIKeys.plist
 Config/Secrets.plist
 
@@ -70,7 +53,7 @@ Config/Secrets.plist
 *.temp
 *~
 
-# macOS
+# macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -114,30 +97,22 @@ crashlytics.properties
 *.realm.lock
 *.realm.management
 
-# SQLite
+# SQLite & Core Data
 *.sqlite
 *.sqlite3
 *.db
-
-# Core Data
 *.momd/
 *.mom/
 
-# App Store Connect
+# Distribution
 *.ipa
 *.dSYM.zip
-
-# TestFlight
 *.tfupload
-
-# Provisioning profiles
 *.mobileprovision
-
-# Code signing
 *.p12
 *.cer
 
-# SPM
+# SwiftPM metadata
 .swiftpm/
 
 # Mint
@@ -148,3 +123,4 @@ crashlytics.properties
 
 # Danger
 danger/
+
