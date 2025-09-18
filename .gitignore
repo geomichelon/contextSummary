@@ -12,6 +12,10 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 
+# Xcode User Data (specific patterns)
+*.xcuserstate
+UserInterfaceState.xcuserstate
+
 # Build products
 build/
 DerivedData/
