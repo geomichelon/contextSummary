@@ -1,6 +1,6 @@
 # ContextResume
 
-iOS project built with **Xcode 18.5** and SwiftUI, featuring a **generic LLM architecture** that allows seamless switching between multiple Large Language Model providers (OpenAI, Anthropic Claude, Google Gemini, and Mock), with automated tests ensuring **87.77% coverage** (7.77% above the 80% target).
+iOS project built with **Xcode26** and SwiftUI, featuring a **generic LLM architecture** that allows seamless switching between multiple Large Language Model providers (OpenAI, Anthropic Claude, Google Gemini, and Mock), with automated tests ensuring **87.77% coverage** (7.77% above the 80% target).
 
 This README documents the evolution from a simple API client to a production-ready, multi-provider LLM system with enterprise-grade architecture.
 
