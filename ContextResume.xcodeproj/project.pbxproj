@@ -29,7 +29,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		901AE2312E7B4CD000D54F25 /* ContextResume */ = {
+		D93C65222E8355C200EC2297 /* ContextResume */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ContextResume;
 			sourceTree = "<group>";
@@ -57,7 +57,7 @@
 		901AE2262E7B4CD000D54F25 = {
 			isa = PBXGroup;
 			children = (
-				901AE2312E7B4CD000D54F25 /* ContextResume */,
+				D93C65222E8355C200EC2297 /* ContextResume */,
 				901AE3012E7B4D0000TEST2 /* ContextResumeTests */,
 				901AE2302E7B4CD000D54F25 /* Products */,
 			);
@@ -97,7 +97,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				901AE2312E7B4CD000D54F25 /* ContextResume */,
+				D93C65222E8355C200EC2297 /* ContextResume */,
 			);
 			name = ContextResume;
 			packageProductDependencies = (
