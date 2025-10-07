@@ -1,5 +1,7 @@
 import Combine
 import Foundation
+import SwiftData
+
 /// ViewModel for handling text summarization in the UI.
 /// Manages input text, summary output, loading states, and errors.
 class SummarizerViewModel: ObservableObject {
@@ -8,10 +10,15 @@ class SummarizerViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
 
+    // ✅ Nueva propiedad para manejar navegación
+    @Published var shouldShowSummaries: Bool = false
+    
     private let repository: SummarizerRepository
+    private var context: ModelContext?   // ✅ Persistencia con SwiftData
 
-    init(repository: SummarizerRepository) {
+    init(repository: SummarizerRepository, context: ModelContext? = nil) {
         self.repository = repository
+        self.context = context
     }
 
     /// Summarizes the input text using the injected repository.
@@ -44,5 +51,32 @@ class SummarizerViewModel: ObservableObject {
                 isLoading = false
             }
         }
+    }
+
+    /// ✅ Guarda el resumen actual en persistencia local
+    func saveSummary() {
+        guard let context = context else { return }
+        guard !summary.isEmpty else { return }
+
+        let newSummary = SummaryEntity(text: summary, createdAt: Date())
+        context.insert(newSummary)
+
+        do {
+            try context.save()
+        } catch {
+            print("❌ Failed to save summary: \(error)")
+        }
+    }
+
+    /// ✅ Cambia el flag para navegar a la lista de resúmenes
+    func goToSummaries() {
+        shouldShowSummaries = true
+    }
+
+    /// ✅ Limpia la entrada y el resumen actual
+    func resetFields() {
+        inputText = ""
+        summary = ""
+        errorMessage = nil
     }
 }
